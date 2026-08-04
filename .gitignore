@@ -43,8 +43,8 @@ database/*.txt
 database/*.json
 database/resultados_url_verifiers.csv
 
-
-
-
 # Ignorar imagens de gráficos temporários
 media/tempo_*.png
+
+# Architecture
+ARCHITETURE.md
