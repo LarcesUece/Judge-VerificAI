@@ -1,0 +1,65 @@
+Relatório Ollama - 2026-06-18 12:34:51
+Modelo: hf.co/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF:Q6_K | RAG: Ativo (200 docs, isolado para avaliação) | Safe Browsing: Ativo
+Pipeline: Sanitização → RAG → Safe Browsing → Inferência LLM
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 válidas (0 erros descartados)
+
+  Métricas de Classificação:
+    Acurácia:         89.39%
+    Precisão:         56.06%
+    Recall:           96.65%
+    Especificidade:   88.27%
+    F1-Score:         70.96%
+
+  Matriz de Confusão:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4259        566         
+    Real 'spam'           25          722         
+
+    TP=722  FP=566  FN=25  TN=4259
+
+  Tempo de Inferência (apenas LLM):
+    Média:          8.09s
+    Desvio Padrão:  1.89s
+    IC 95%:         8.09s ± 0.05s  [8.04s, 8.14s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (não incluídos no IC):
+    Sanitização (média):    0.0000s
+    RAG (média):            0.0197s
+    Safe Browsing (média):  0.0021s
+    Total Pipeline (média): 8.11s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 8000 válidas (0 erros descartados)
+
+  Métricas de Classificação:
+    Acurácia:         83.95%
+    Precisão:         74.22%
+    Recall:           90.69%
+    Especificidade:   79.58%
+    F1-Score:         81.63%
+
+  Matriz de Confusão:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     3863        991         
+    Real 'phishing email' 293         2853        
+
+    TP=2853  FP=991  FN=293  TN=3863
+
+  Tempo de Inferência (apenas LLM):
+    Média:          14.75s
+    Desvio Padrão:  78.02s
+    IC 95%:         14.75s ± 1.71s  [13.04s, 16.46s]
+    Amostras (n):   8000
+
+  Tempos Auxiliares (não incluídos no IC):
+    Sanitização (média):    0.0006s
+    RAG (média):            0.0681s
+    Safe Browsing (média):  0.1385s
+    Total Pipeline (média): 14.96s

@@ -1,0 +1,86 @@
+Relatorio Ollama - 2026-06-30 10:17:24
+Modelo Principal: qwen3.5:9b | Judge: deepseek-v4-flash:cloud
+RAG: Ativo (200 docs) | Safe Browsing: Ativo
+Pipeline: Sanitizacao -> RAG -> Safe Browsing -> LLM Principal -> Judge
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         96.75%
+    Precisao:         86.66%
+    Recall:           89.56%
+    Especificidade:   97.87%
+    F1-Score:         88.08%
+
+  Matriz de Confusao:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4722        103         
+    Real 'spam'           78          669         
+
+    TP=669  FP=103  FN=78  TN=4722
+
+  Estatisticas do Judge:
+    Confirmacoes:   5024 (90.2%)
+    Correcoes:      547 (9.8%)
+
+  Tempo de Inferencia - Modelo Principal (qwen3.5:9b):
+    Media:          4.82s
+    Desvio Padrao:  1.28s
+    IC 95%:         4.82s +/- 0.03s  [4.79s, 4.86s]
+    Amostras (n):   5572
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          4.06s
+    Desvio Padrao:  4.87s
+    IC 95%:         4.06s +/- 0.13s  [3.93s, 4.18s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0000s
+    RAG (media):            0.0177s
+    Safe Browsing (media):  0.0021s
+    Total Pipeline (media): 8.90s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 8000 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         90.77%
+    Precisao:         97.29%
+    Recall:           78.73%
+    Especificidade:   98.58%
+    F1-Score:         87.03%
+
+  Matriz de Confusao:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     4785        69          
+    Real 'phishing email' 669         2477        
+
+    TP=2477  FP=69  FN=669  TN=4785
+
+  Estatisticas do Judge:
+    Confirmacoes:   6890 (86.1%)
+    Correcoes:      1109 (13.9%)
+
+  Tempo de Inferencia - Modelo Principal (qwen3.5:9b):
+    Media:          7.19s
+    Desvio Padrao:  2.43s
+    IC 95%:         7.19s +/- 0.05s  [7.14s, 7.25s]
+    Amostras (n):   8000
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          5.38s
+    Desvio Padrao:  6.28s
+    IC 95%:         5.38s +/- 0.14s  [5.24s, 5.51s]
+    Amostras (n):   8000
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0004s
+    RAG (media):            0.0625s
+    Safe Browsing (media):  0.1352s
+    Total Pipeline (media): 12.77s

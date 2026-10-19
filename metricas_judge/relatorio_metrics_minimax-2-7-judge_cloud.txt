@@ -1,0 +1,86 @@
+Relatorio Ollama Cloud - 2026-07-07 08:37:10
+Modelo Principal: minimax-m2.7:cloud | Judge: deepseek-v4-flash:cloud
+RAG: Ativo (200 docs) | Safe Browsing: Ativo
+Pipeline: Sanitizacao -> RAG -> Safe Browsing -> LLM Principal -> Judge
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         97.22%
+    Precisao:         88.44%
+    Recall:           91.16%
+    Especificidade:   98.16%
+    F1-Score:         89.78%
+
+  Matriz de Confusao:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4736        89          
+    Real 'spam'           66          681         
+
+    TP=681  FP=89  FN=66  TN=4736
+
+  Estatisticas do Judge:
+    Confirmacoes:   5369 (96.4%)
+    Correcoes:      203 (3.6%)
+
+  Tempo de Inferencia - Modelo Principal (minimax-m2.7:cloud):
+    Media:          10.59s
+    Desvio Padrao:  11.88s
+    IC 95%:         10.59s +/- 0.31s  [10.28s, 10.91s]
+    Amostras (n):   5572
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          4.57s
+    Desvio Padrao:  4.10s
+    IC 95%:         4.57s +/- 0.11s  [4.47s, 4.68s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0000s
+    RAG (media):            0.0203s
+    Safe Browsing (media):  0.0022s
+    Total Pipeline (media): 15.19s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 7998 validas (2 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         91.79%
+    Precisao:         98.52%
+    Recall:           80.32%
+    Especificidade:   99.22%
+    F1-Score:         88.50%
+
+  Matriz de Confusao:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     4814        38          
+    Real 'phishing email' 619         2527        
+
+    TP=2527  FP=38  FN=619  TN=4814
+
+  Estatisticas do Judge:
+    Confirmacoes:   7499 (93.8%)
+    Correcoes:      499 (6.2%)
+
+  Tempo de Inferencia - Modelo Principal (minimax-m2.7:cloud):
+    Media:          14.54s
+    Desvio Padrao:  13.73s
+    IC 95%:         14.54s +/- 0.30s  [14.24s, 14.84s]
+    Amostras (n):   7998
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          5.74s
+    Desvio Padrao:  3.78s
+    IC 95%:         5.74s +/- 0.08s  [5.66s, 5.83s]
+    Amostras (n):   7998
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0005s
+    RAG (media):            0.0682s
+    Safe Browsing (media):  0.1397s
+    Total Pipeline (media): 20.49s

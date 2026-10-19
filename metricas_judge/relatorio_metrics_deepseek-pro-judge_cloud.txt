@@ -1,0 +1,86 @@
+Relatorio Ollama Cloud - 2026-07-11 03:08:30
+Modelo Principal: deepseek-v4-pro:cloud | Judge: deepseek-v4-flash:cloud
+RAG: Ativo (200 docs) | Safe Browsing: Ativo
+Pipeline: Sanitizacao -> RAG -> Safe Browsing -> LLM Principal -> Judge
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         97.09%
+    Precisao:         87.26%
+    Recall:           91.70%
+    Especificidade:   97.93%
+    F1-Score:         89.43%
+
+  Matriz de Confusao:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4725        100         
+    Real 'spam'           62          685         
+
+    TP=685  FP=100  FN=62  TN=4725
+
+  Estatisticas do Judge:
+    Confirmacoes:   5224 (93.8%)
+    Correcoes:      348 (6.2%)
+
+  Tempo de Inferencia - Modelo Principal (deepseek-v4-pro:cloud):
+    Media:          2.35s
+    Desvio Padrao:  2.84s
+    IC 95%:         2.35s +/- 0.07s  [2.28s, 2.43s]
+    Amostras (n):   5572
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          2.86s
+    Desvio Padrao:  2.89s
+    IC 95%:         2.86s +/- 0.08s  [2.78s, 2.93s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0000s
+    RAG (media):            0.0198s
+    Safe Browsing (media):  0.0024s
+    Total Pipeline (media): 5.23s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 8000 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         91.85%
+    Precisao:         97.85%
+    Recall:           81.06%
+    Especificidade:   98.85%
+    F1-Score:         88.66%
+
+  Matriz de Confusao:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     4798        56          
+    Real 'phishing email' 596         2550        
+
+    TP=2550  FP=56  FN=596  TN=4798
+
+  Estatisticas do Judge:
+    Confirmacoes:   7378 (92.2%)
+    Correcoes:      621 (7.8%)
+
+  Tempo de Inferencia - Modelo Principal (deepseek-v4-pro:cloud):
+    Media:          3.20s
+    Desvio Padrao:  6.76s
+    IC 95%:         3.20s +/- 0.15s  [3.05s, 3.35s]
+    Amostras (n):   8000
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          5.54s
+    Desvio Padrao:  4.93s
+    IC 95%:         5.54s +/- 0.11s  [5.43s, 5.64s]
+    Amostras (n):   8000
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0005s
+    RAG (media):            0.0665s
+    Safe Browsing (media):  0.1394s
+    Total Pipeline (media): 8.94s

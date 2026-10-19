@@ -1,0 +1,86 @@
+Relatorio Ollama - 2026-07-03 02:08:24
+Modelo Principal: hf.co/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF:Q6_K | Judge: deepseek-v4-flash:cloud
+RAG: Ativo (200 docs) | Safe Browsing: Ativo
+Pipeline: Sanitizacao -> RAG -> Safe Browsing -> LLM Principal -> Judge
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 validas (0 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         96.91%
+    Precisao:         87.39%
+    Recall:           89.96%
+    Especificidade:   97.99%
+    F1-Score:         88.65%
+
+  Matriz de Confusao:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4728        97          
+    Real 'spam'           75          672         
+
+    TP=672  FP=97  FN=75  TN=4728
+
+  Estatisticas do Judge:
+    Confirmacoes:   5193 (93.2%)
+    Correcoes:      379 (6.8%)
+
+  Tempo de Inferencia - Modelo Principal (hf.co/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF:Q6_K):
+    Media:          9.11s
+    Desvio Padrao:  2.09s
+    IC 95%:         9.11s +/- 0.05s  [9.06s, 9.17s]
+    Amostras (n):   5572
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          5.93s
+    Desvio Padrao:  5.09s
+    IC 95%:         5.93s +/- 0.13s  [5.80s, 6.07s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0000s
+    RAG (media):            0.0181s
+    Safe Browsing (media):  0.0022s
+    Total Pipeline (media): 15.07s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 7900 validas (100 erros descartados)
+
+  Metricas de Classificacao (resultado pos-Judge):
+    Acuracia:         91.76%
+    Precisao:         98.66%
+    Recall:           80.17%
+    Especificidade:   99.29%
+    F1-Score:         88.46%
+
+  Matriz de Confusao:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     4755        34          
+    Real 'phishing email' 617         2494        
+
+    TP=2494  FP=34  FN=617  TN=4755
+
+  Estatisticas do Judge:
+    Confirmacoes:   6983 (88.4%)
+    Correcoes:      917 (11.6%)
+
+  Tempo de Inferencia - Modelo Principal (hf.co/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF:Q6_K):
+    Media:          12.31s
+    Desvio Padrao:  2.46s
+    IC 95%:         12.31s +/- 0.05s  [12.26s, 12.36s]
+    Amostras (n):   7900
+
+  Tempo de Inferencia - Judge (deepseek-v4-flash:cloud):
+    Media:          5.88s
+    Desvio Padrao:  2.99s
+    IC 95%:         5.88s +/- 0.07s  [5.81s, 5.95s]
+    Amostras (n):   7900
+
+  Tempos Auxiliares (nao incluidos nos ICs):
+    Sanitizacao (media):    0.0004s
+    RAG (media):            0.0653s
+    Safe Browsing (media):  0.1381s
+    Total Pipeline (media): 18.39s

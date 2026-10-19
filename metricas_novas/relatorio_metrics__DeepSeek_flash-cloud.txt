@@ -1,0 +1,65 @@
+Relatório Ollama Cloud - 2026-06-26 22:32:45
+Modelo: deepseek-v4-flash:cloud | RAG: Ativo (200 docs) | Safe Browsing: Ativo
+Pipeline: Sanitização → RAG → Safe Browsing → Inferência LLM
+
+=======================================================
+  SMS Dataset
+=======================================================
+  Amostras: 5572 válidas (0 erros descartados)
+
+  Métricas de Classificação:
+    Acurácia:         96.68%
+    Precisão:         82.67%
+    Recall:           95.18%
+    Especificidade:   96.91%
+    F1-Score:         88.49%
+
+  Matriz de Confusão:
+                         Previsto 'ham'           Previsto 'spam'
+    Real 'ham'            4676        149         
+    Real 'spam'           36          711         
+
+    TP=711  FP=149  FN=36  TN=4676
+
+  Tempo de Inferência (apenas LLM):
+    Média:          2.00s
+    Desvio Padrão:  1.83s
+    IC 95%:         2.00s ± 0.05s  [1.95s, 2.04s]
+    Amostras (n):   5572
+
+  Tempos Auxiliares (não incluídos no IC):
+    Sanitização (média):    0.0000s
+    RAG (média):            0.0222s
+    Safe Browsing (média):  0.0022s
+    Total Pipeline (média): 2.02s
+
+=======================================================
+  Email Dataset
+=======================================================
+  Amostras: 8000 válidas (0 erros descartados)
+
+  Métricas de Classificação:
+    Acurácia:         91.30%
+    Precisão:         89.47%
+    Recall:           88.27%
+    Especificidade:   93.26%
+    F1-Score:         88.86%
+
+  Matriz de Confusão:
+                         Previsto 'safe email'    Previsto 'phishing email'
+    Real 'safe email'     4527        327         
+    Real 'phishing email' 369         2777        
+
+    TP=2777  FP=327  FN=369  TN=4527
+
+  Tempo de Inferência (apenas LLM):
+    Média:          2.33s
+    Desvio Padrão:  3.69s
+    IC 95%:         2.33s ± 0.08s  [2.25s, 2.41s]
+    Amostras (n):   8000
+
+  Tempos Auxiliares (não incluídos no IC):
+    Sanitização (média):    0.0005s
+    RAG (média):            0.0686s
+    Safe Browsing (média):  0.1362s
+    Total Pipeline (média): 2.54s
